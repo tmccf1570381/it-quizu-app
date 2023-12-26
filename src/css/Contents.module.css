@@ -4,4 +4,7 @@
     display: flex;
     width: 100vw;
 }
-  
+
+.quizArea {
+    width: 82vw;
+}

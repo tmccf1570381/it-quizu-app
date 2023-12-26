@@ -1,7 +1,17 @@
+import Answer from "./Answer";
+import Option from "./Option";
+import Question from "./Question";
+
 export default function Quiz () {
+
     return (
         <div>
-            <h1>Quiz</h1>
+            <Question />
+            { 
+                true 
+                ? <Option />
+                : <Answer/>
+            }
         </div>
     )
 }

@@ -1,7 +1,9 @@
+import style from "../../../css/Quiz.module.css"
+
 export default function Question () {
     return (
-        <div>
-            <h1>Question</h1>
+        <div className={style.questionArea}>
+            Question
         </div>
     )
 }

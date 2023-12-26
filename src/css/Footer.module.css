@@ -1,4 +1,8 @@
 .footer {
     height: 3vh;
     background-color: #AFC8AD;
+    box-sizing: border-box;
+    border-top: 1px solid #d9d9d8;
+    font-size: 0.7em;
+    text-align: center;
 }

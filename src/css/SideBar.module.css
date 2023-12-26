@@ -1,6 +1,8 @@
 .aside {
-    background-color: #EEE7DA;
+    background-color: #F2F1EB;
     width: 18vw;
+    box-sizing: border-box;
+    border-right: 1px solid #d9d9d8;
 }
 
 .aside > h5 {
