@@ -1,0 +1,9 @@
+.aside {
+    background-color: #EEE7DA;
+    width: 18vw;
+}
+
+.aside > h5 {
+    margin: 0;
+    padding: 3vh 0 0 1vw;
+}
