@@ -1,11 +1,18 @@
 import style from "../../../css/SideBar.module.css"
+import Catergory from "./Catergory"
+import SubCatergory from "./SubCatergory"
 
 export default function SideBar () {
+    const cateList = ["AWS CLF","AWS SAA","AWS DVA","AWS SOA","AWS SAP","AWS DOP","AWS ANS","AWS SCS","AWS DAS","AWS MLS","AWS PAS","AWS DBS","ITパスポート"]
+
     return (
     <section className={style.aside}>
-        <h5>👑 ランキング</h5>
-        <h5>🇯🇵 ジャンル選択</h5>
-        <h5>📖 ナレッジ</h5>
+        {
+            Array(3).fill(0).map((_, i) => <>
+                <Catergory key={i} num={i} />
+                {i===1 && <SubCatergory cateList={cateList} />}
+            </>)
+        }
     </section>
     )
 }

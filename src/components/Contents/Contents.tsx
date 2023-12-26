@@ -8,8 +8,10 @@ export default function Contents () {
         <div className={style.main}>      
             <SideBar />
             <div className={style.quizArea}>
-                <StatusBar/>
-                <Quiz />
+                <>
+                    <StatusBar/>
+                    <Quiz />
+                </>
             </div>
         </div>
     )

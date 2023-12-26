@@ -8,4 +8,41 @@
 .aside > h5 {
     margin: 0;
     padding: 3vh 0 0 1vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hidden, .subCatergory {
+    display: none;
+}
+
+.catergoryRow {
+    cursor: pointer;
+}
+
+.catergoryRow:has(.hidden:checked) {
+    border-bottom: 2px solid #88AB8E;
+}
+
+.subCatergory  label {
+    font-size: 0.8rem;
+    margin: 1vh 0;
+    color: #88AB8E;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.subCatergory  label:hover {
+    text-decoration: underline;
+}
+
+.aside > h5:has(.hidden:checked) + .subCatergory {
+    margin: 2vh 0 0 2vw;
+    display: unset;
+    display: flex;
+    flex-direction: column;
 }

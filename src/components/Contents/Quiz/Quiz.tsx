@@ -7,10 +7,9 @@ export default function Quiz () {
     return (
         <div>
             <Question />
-            { 
-                true 
+            {true 
                 ? <Option />
-                : <Answer/>
+                : <Answer />
             }
         </div>
     )

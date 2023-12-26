@@ -12,7 +12,7 @@ export default function Option () {
                 // TODO : Optionを置換え
                 Array(6).fill(0).map((_,ind) => (
                     <label className={style.optionSingle}>
-                        {true
+                        {false
                             ? <input type="radio" name="option" value={""} className={style.hidden}/>
                             : <input type="checkbox" name="option" value={""} className={style.hidden}/>
                         }
