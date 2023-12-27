@@ -2,15 +2,11 @@
     background-color: rgb(255, 255, 255);
     margin: 2vh 2vw;
     padding: 0.5vh 0.5vw;
-    height: 23vh;
+    height: 24vh;
     width: 77vw;
-    resize: none;
+    font-size: 0.9rem;
     overflow-y: scroll;
-    border: none;
-}
-
-textarea:focus {
-    outline: none;
+    white-space: pre-wrap;
 }
 
 .optionArea {
@@ -50,7 +46,6 @@ textarea:focus {
     height: 14vh;
     font-size: 0.9rem;
     display: flex;
-    align-items: center;
     padding: 0 0.5vw;
     overflow-y: scroll;
 }
@@ -74,14 +69,19 @@ textarea:focus {
 
 .answerArea > h5 > span {
     color: red;
+    font-size: 1.2em;
 }
 
-.answerArea > textarea {
+.answerArea > div {
     height: 39vh;
     padding: 0 1vw;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    color: rgb(75, 75, 75);
     resize:none;
     border: none;
     overflow-y: scroll;
+    white-space: pre-wrap;
 }
 
 .replayButtonArea {
