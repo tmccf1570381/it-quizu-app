@@ -22,3 +22,16 @@
     box-sizing: border-box;
     cursor: pointer;
 }
+
+.selectTest {
+    margin: 1vh 0 0 0;
+    width: 15vw;
+    height: 4vh;
+    padding: 0.5vh 0.5vw;
+    border: none;
+    font-size: 0.8rem;
+}
+
+.selectTest:focus {
+    outline: none;
+}
