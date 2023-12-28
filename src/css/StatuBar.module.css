@@ -35,3 +35,8 @@
 .selectTest:focus {
     outline: none;
 }
+
+.push {
+    background-color: #88AB8E;
+    color: white;
+}

@@ -4,10 +4,10 @@ import { VariableContext } from "../../../contexts/VariableContextProvider"
 import Loading from "../../Loading/Loading"
 
 export default function StatusBar () {
-    const { setSelected, isLoading } = useContext(VariableContext)
+    const { selected, setSelected, isLoading } = useContext(VariableContext)
     
     useEffect(()=>{
-        
+
     },[])
 
     return (
@@ -24,7 +24,8 @@ export default function StatusBar () {
             </select>
             <div className={style.statusArea}>
                 {
-                    Array(7).fill(0).map((_,ind) => <div className={style.statusResponse} key={"#"+ind} onClick={()=>{setSelected(ind)}}>{ind+1}</div>)
+                    Array(7).fill(0).map((_,ind) => 
+                    <div className={`${style.statusResponse} ${selected===ind && style.push}`} key={"#"+ind} onClick={()=>{setSelected(ind)}}>{ind+1}</div>)
                 }
             </div>
         </div>

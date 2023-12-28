@@ -5,7 +5,7 @@ import ReplyButton from "./ReplyButton"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
 import { selectoptions } from "../../../repository/selectoptions"
 
-export default function Option ({setShowFlag}:{setShowFlag:React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function Option () {
     const {input, selected, yourAnswer, setYourAnswer} = useContext(VariableContext)
 
     return (
@@ -26,7 +26,7 @@ export default function Option ({setShowFlag}:{setShowFlag:React.Dispatch<React.
                 ))
             }
         </div>
-        <ReplyButton char={"Replay"} setShowFlag={setShowFlag} />
+        <ReplyButton char={"Replay"} />
         </>
     )
 }

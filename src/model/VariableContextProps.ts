@@ -20,3 +20,8 @@ export type VariableContextProps = {
     yourAnswer : number[][]
     setYourAnswer : React.Dispatch<React.SetStateAction<number[][]>>
 }
+
+export type ExamContextProps = {
+    setShowFlag: React.Dispatch<React.SetStateAction<boolean>>
+    setResult : React.Dispatch<React.SetStateAction<boolean>>
+}
