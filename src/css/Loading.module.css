@@ -35,3 +35,10 @@
 @keyframes l6 {
     100% {transform:scaleX(var(--s,1)) rotate(360deg);}
 }
+
+.hanamaru {
+    position: absolute;
+    height: 45vh;
+    right: 0;
+    top: 0vh;
+}

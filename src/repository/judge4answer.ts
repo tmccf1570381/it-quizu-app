@@ -1,6 +1,5 @@
-export const judge4answer = (num:number[],setShowFlag:React.Dispatch<React.SetStateAction<boolean>>) => {
-
-    alert(num)
+export const judge4answer = (num:number[],answer:number[],setShowFlag:React.Dispatch<React.SetStateAction<boolean>>) => {
     setShowFlag(false)
-    return "正解"
+    alert(JSON.stringify(num.sort()) === JSON.stringify(answer.sort()))
+    return JSON.stringify(num.sort()) === JSON.stringify(answer.sort())
 }

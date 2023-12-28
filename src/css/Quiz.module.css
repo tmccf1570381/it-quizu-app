@@ -101,6 +101,9 @@
     font-size: 0.9rem;
     font-weight: bold;
     box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .replayButton:hover {
