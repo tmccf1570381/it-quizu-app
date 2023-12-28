@@ -1,3 +1,4 @@
+import React from "react"
 import style from "../../../css/SideBar.module.css"
 import Catergory from "./Catergory"
 import SubCatergory from "./SubCatergory"
@@ -8,10 +9,12 @@ export default function SideBar () {
     return (
     <section className={style.aside}>
         {
-            Array(3).fill(0).map((_, i) => <>
-                <Catergory key={i} num={i} />
-                {i===1 && <SubCatergory cateList={cateList} />}
-            </>)
+            Array(3).fill(0).map((_, i) =>(
+                <React.Fragment key={i} >
+                    <Catergory num={i} />
+                    {i===1 && <SubCatergory cateList={cateList} />}
+                </React.Fragment>
+            ))
         }
     </section>
     )

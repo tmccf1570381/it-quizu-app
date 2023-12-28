@@ -1,20 +1,24 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import style from "../../../css/StatuBar.module.css"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
 import Loading from "../../Loading/Loading"
 
 export default function StatusBar () {
-const { setSelected } = useContext(VariableContext)
+    const { setSelected, isLoading } = useContext(VariableContext)
+    
+    useEffect(()=>{
+        
+    },[])
 
     return (
         <>
-        {true && <Loading/>}
+        {isLoading && <Loading/>}
         <div className={style.statusBar}>
-            <select name="" id="" className={style.selectTest}>
+            <select name="a" id="a" className={style.selectTest}>
                 {
                     <>
-                    <option value="">ANS#21</option>
-                    <option value="">ANS#22</option>
+                        <option value="">ANS#21</option>
+                        <option value="">ANS#22</option>
                     </>
                 }
             </select>

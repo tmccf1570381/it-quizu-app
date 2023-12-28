@@ -15,4 +15,8 @@ export type VariableContextProps = {
     input : inputType
     selected : number
     setSelected : React.Dispatch<React.SetStateAction<number>>
+    isLoading : boolean
+    setIsLoading : React.Dispatch<React.SetStateAction<boolean>>
+    yourAnswer : number[][]
+    setYourAnswer : React.Dispatch<React.SetStateAction<number[][]>>
 }

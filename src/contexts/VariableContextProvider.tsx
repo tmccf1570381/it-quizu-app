@@ -5,13 +5,19 @@ import { VariableContextProps } from '../model/VariableContextProps';
 type Props = Readonly<{children: ReactNode}>
 
 export const VariableContext = createContext<VariableContextProps>({
-    input: dummyInput,
+    input : dummyInput,
     selected : 0,
-    setSelected : ()=>{}
+    setSelected : ()=>{},
+    isLoading : false,
+    setIsLoading : ()=>{},
+    yourAnswer: [[],[],[],[],[],[],[]],
+    setYourAnswer : ()=>{}
 });
 
 export const VariableContextProvider:React.FC<Props> = ({children}) => {
-    const [selected, setSelected] = useState(0)
+    const [selected, setSelected] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+    const [yourAnswer, setYourAnswer] = useState<number[][]>([[],[],[],[],[],[],[]])
 
     useEffect(()=>{
         // この中でフェッチする
@@ -20,7 +26,11 @@ export const VariableContextProvider:React.FC<Props> = ({children}) => {
     const values = {
         input : dummyInput,
         selected : selected,
-        setSelected : setSelected
+        setSelected : setSelected,
+        isLoading: isLoading,
+        setIsLoading : setIsLoading,
+        yourAnswer : yourAnswer,
+        setYourAnswer : setYourAnswer,
     }
 
     return (

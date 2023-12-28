@@ -3,19 +3,22 @@ import style from "../../../css/Quiz.module.css"
 import { num2alpha } from "../../../repository/num2alpha"
 import ReplyButton from "./ReplyButton"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
+import { selectoptions } from "../../../repository/selectoptions"
 
-export default function Option () {
-    const {input,selected} = useContext(VariableContext)
+export default function Option ({setShowFlag}:{setShowFlag:React.Dispatch<React.SetStateAction<boolean>>}) {
+    const {input, selected, yourAnswer, setYourAnswer} = useContext(VariableContext)
 
     return (
         <>
         <div className={style.optionArea}>
             {
                 input["contents"][selected]["option"].map((e,ind) => (
-                    <label className={style.optionSingle}>
+                    <label className={style.optionSingle} key={"%"+ind}>
                         {input["contents"][selected]["answer"].length===1
-                            ? <input type="radio" name={"option-"+selected} value={""} className={style.hidden}/>
-                            : <input type="checkbox" name={"option-"+selected} value={""} className={style.hidden}/>
+                            ? <input type="radio" name="option" value={ind} className={style.hidden} checked={yourAnswer[selected][0]===ind}
+                                onChange={(e:any)=>{selectoptions(e,selected,setYourAnswer)}} />
+                            : <input type="checkbox" name="option" value={ind!} className={style.hidden} checked={yourAnswer[selected].indexOf(ind)!==-1}
+                                onChange={(e:any)=>{selectoptions(e,selected,setYourAnswer)}} />
                         }
                         <div className={style.optionSingleAlpha}>{num2alpha(ind)}</div>
                         <div className={style.optionSingleText}>{e}</div>
@@ -23,7 +26,7 @@ export default function Option () {
                 ))
             }
         </div>
-        <ReplyButton char={"Replay"} />
+        <ReplyButton char={"Replay"} setShowFlag={setShowFlag} />
         </>
     )
 }
