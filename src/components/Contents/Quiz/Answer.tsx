@@ -5,7 +5,8 @@ import { VariableContext } from "../../../contexts/VariableContextProvider"
 import { num2alpha } from "../../../repository/num2alpha"
 
 export default function Answer () {
-    const { input, selected } = useContext(VariableContext)
+    const { input, selected } = useContext(VariableContext);
+    console.log(selected)
 
     return (
         <>
@@ -13,7 +14,7 @@ export default function Answer () {
             <h5>正解は・・・<span>{`${input["contents"][selected]["answer"].map(e=>num2alpha(e))}`}</span></h5>
             <div>{input["contents"][selected]["explanation"]}</div>
         </div>
-        <ReplyButton char={"Next"} />
+        {selected!==6 && <ReplyButton char={"Next"} />}
         </>
     )
 }
