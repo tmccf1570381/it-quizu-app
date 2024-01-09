@@ -10,6 +10,11 @@ type examinationType = {
     no : number
 }
 
+type userType = {
+    user: string
+    auth: string
+}|null
+
 export type inputType = {
     target : string
     no : string
@@ -17,6 +22,8 @@ export type inputType = {
 }
 
 export type VariableContextProps = {
+    user: userType,
+    setUser: React.Dispatch<React.SetStateAction<userType>>,
     input : inputType
     setInput : React.Dispatch<React.SetStateAction<inputType>>
     selected : number
@@ -30,6 +37,8 @@ export type VariableContextProps = {
 }
 
 export type ExamContextProps = {
+    showFlag: boolean
     setShowFlag: React.Dispatch<React.SetStateAction<boolean>>
+    result: boolean
     setResult : React.Dispatch<React.SetStateAction<boolean>>
 }

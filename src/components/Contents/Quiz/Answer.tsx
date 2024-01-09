@@ -6,7 +6,6 @@ import { num2alpha } from "../../../repository/num2alpha"
 
 export default function Answer () {
     const { input, selected } = useContext(VariableContext);
-    console.log(selected)
 
     return (
         <>

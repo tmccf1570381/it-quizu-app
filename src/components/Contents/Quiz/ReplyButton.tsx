@@ -3,14 +3,13 @@ import style from "../../../css/Quiz.module.css"
 import { judge4answer } from "../../../repository/judge4answer"
 import { go2next } from "../../../repository/got2next"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
-import { ExamContext } from "./Quiz"
+import { ExamContext } from "../Contents"
 
 export default function ReplyButton ({char}:{char:string}) {
     const { input, yourAnswer, selected, setSelected } = useContext(VariableContext);
     const { setShowFlag, setResult } = useContext(ExamContext)
 
     return (
-        <>
         <div className={style.replayButtonArea}>
             <button className={style.replayButton} onClick={()=>{
                 char!=="Next" 
@@ -19,6 +18,5 @@ export default function ReplyButton ({char}:{char:string}) {
                 {char}
             </button>
         </div>
-        </>
     )
 }

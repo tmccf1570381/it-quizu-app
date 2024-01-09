@@ -1,19 +1,13 @@
-import { createContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Answer from "./Answer";
 import Option from "./Option";
 import Question from "./Question";
 import Hanamaru from "../../Loading/Hanamaru";
-import { ExamContextProps } from "../../../model/VariableContextProps";
-
-export const ExamContext = createContext<ExamContextProps>({
-    setShowFlag : ()=>{},
-    setResult : ()=>{}
-})
+import { ExamContext } from "../Contents";
 
 export default function Quiz () {
-    const [showFlag, setShowFlag] = useState(true);
-    const [result, setResult] = useState(false)
     const [timeFlag, setTimeFlag] = useState(false);
+    const {showFlag, result} = useContext(ExamContext)
 
     useEffect(()=>{
         setTimeFlag(true);
@@ -23,14 +17,12 @@ export default function Quiz () {
 
     return (
         <div>
-            {!showFlag && timeFlag && <Hanamaru judge={result} />}
-            <ExamContext.Provider value={{setShowFlag:setShowFlag,setResult:setResult}}>
-                <Question />
-                {showFlag 
-                    ? <Option  />
-                    : <Answer />
-                }
-            </ExamContext.Provider>
+        {!showFlag && timeFlag && <Hanamaru judge={result} />}
+            <Question />
+            {showFlag 
+                ? <Option  />
+                : <Answer />
+            }
         </div>
     )
 }

@@ -2,15 +2,19 @@ import { useContext, useEffect, useState } from "react"
 import style from "../../../css/StatuBar.module.css"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
 import Loading from "../../Loading/Loading"
+import { ExamContext } from "../Contents";
 
 export default function StatusBar () {
-    const { setInput, selected, isLoading, examination, setExamination } = useContext(VariableContext);
+    const { setInput, selected, setSelected, isLoading, examination, setExamination } = useContext(VariableContext);
+    const { setShowFlag } = useContext(ExamContext)
     const [examList, setExamList] = useState([{no:"0", exam:"", target:""}])
     
     useEffect(()=>{
         (async()=>{
             if (examination.no!==0){
                 const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-exam?exam=${examination.tittle}&no=${String(examination.no).padStart(2,"0")}`).then(e=>e.json());
+                setShowFlag(true);
+                setSelected(0);
                 setInput(data);
             }
         })();
@@ -29,8 +33,8 @@ export default function StatusBar () {
 
     return (
         <>
-        {isLoading && <Loading/>}
         <div className={style.statusBar}>
+        {isLoading && <Loading/>}
             <select name="selector" id="selector" className={style.selectTest} 
                 onChange={(e)=>setExamination(prev=>({...prev, no:Number(e.target.value)}))}>
                 {
