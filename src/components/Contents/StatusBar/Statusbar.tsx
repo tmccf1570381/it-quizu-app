@@ -10,8 +10,7 @@ export default function StatusBar () {
     useEffect(()=>{
         (async()=>{
             if (examination.no!==0){
-                // TODO: ?exam=${"SOA"} => ?exam=${examination.tittle}
-                const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-exam?exam=${"SOA"}&no=${examination.no}`).then(e=>e.json());
+                const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-exam?exam=${examination.tittle}&no=${String(examination.no).padStart(2,"0")}`).then(e=>e.json());
                 setInput(data);
             }
         })();
@@ -19,12 +18,11 @@ export default function StatusBar () {
 
     useEffect(()=>{
         (async()=>{
-            if (examination.tittle==="SOA"){
-                // TODO: ?exam=${"SOA"} => ?exam=${examination.tittle}
-                const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-examList?exam=${"SOA"}`).then(e=>e.json());
+            if (["SOA","CLF"].includes(examination.tittle)){
+                const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-examList?exam=${examination.tittle}`).then(e=>e.json());
                 const sorted = data.Items.sort((a:any,b:any) => a.no - b.no)
                 setExamList(sorted)
-                setExamination(prev=>({...prev,no:Number(sorted[0].no)}))
+                setExamination(prev=>({...prev, no:Number(sorted[0].no)}))
             }
         })()
     },[examination.tittle])

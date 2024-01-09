@@ -11,8 +11,12 @@ export default function SubCatergory ({cateList}:{cateList:string[]}) {
                 <label key={"$"+ind}>
                     <input type="radio" name={"testlist"} value={e.replace("AWS ","")} 
                         onChange={(i)=>{
-                            i.target.value!=="SOA" && alert("まだ、対応できていません")
-                            i.target.value==="SOA" && setExamination({tittle: i.target.value, no: 0})}}/>
+                            if (["SOA","CLF"].includes(i.target.value)){
+                                setExamination({tittle: i.target.value, no: 0})
+                            }else{
+                                alert("まだ、対応できていません")
+                            }
+                            }}/>
                     {" " + e}
                 </label>
             ))}
