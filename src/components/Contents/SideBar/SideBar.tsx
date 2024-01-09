@@ -4,7 +4,7 @@ import Catergory from "./Catergory"
 import SubCatergory from "./SubCatergory"
 
 export default function SideBar () {
-    const cateList = ["AWS CLF","AWS SAA","AWS DVA","AWS SOA","AWS SAP","AWS DOP","AWS ANS","AWS SCS","AWS DAS","AWS MLS","AWS PAS","AWS DBS","ITパスポート"]
+    const cateList = ["AWS CLF","AWS SAA","AWS DVA","AWS SOA","AWS SAP","AWS DOP","AWS ANS","AWS SCS","AWS DAS","AWS MLS","AWS PAS","AWS DBS"]
 
     return (
         <section className={style.aside}>

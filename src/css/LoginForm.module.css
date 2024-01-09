@@ -21,10 +21,10 @@
     display: inline-block;
 }
 
-.email, .password {
+.email, .password, .text {
     padding: 0.5vh 0.5vw;
     font-size: 0.8rem;
-    width: 22vw;
+    width: 24vw;
     height: 5vh;
 }
 

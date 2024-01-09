@@ -13,3 +13,15 @@
     margin: 0;
     margin-left: 1vw;
 }
+
+.logout {
+    color: #414141;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 2vw;
+}
+
+.logout:hover {
+    text-decoration: none;
+}

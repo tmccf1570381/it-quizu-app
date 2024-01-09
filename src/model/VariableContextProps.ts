@@ -11,9 +11,11 @@ type examinationType = {
 }
 
 type userType = {
-    user: string
+    family_name: string
+    given_name: string
+    email: string
     auth: string
-}|null
+}
 
 export type inputType = {
     target : string
@@ -22,8 +24,6 @@ export type inputType = {
 }
 
 export type VariableContextProps = {
-    user: userType,
-    setUser: React.Dispatch<React.SetStateAction<userType>>,
     input : inputType
     setInput : React.Dispatch<React.SetStateAction<inputType>>
     selected : number
