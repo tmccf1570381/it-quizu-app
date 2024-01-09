@@ -1,5 +1,5 @@
-import { useContext } from "react"
 import style from "../../../css/Quiz.module.css"
+import { useContext } from "react"
 import { num2alpha } from "../../../repository/num2alpha"
 import ReplyButton from "./ReplyButton"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
