@@ -40,6 +40,18 @@ export type ExamContextProps = {
     setResult : React.Dispatch<React.SetStateAction<boolean>>
 }
 
+type userType = {
+    email: string
+    family_name: string
+    given_name: string
+    auth: string
+}
+
+export type UserContextProps = {
+    user: userType
+    setUser: React.Dispatch<React.SetStateAction<userType>>
+}
+
 export type regInputType = {
     new_password:string 
     family_name:string 

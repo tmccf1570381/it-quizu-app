@@ -12,9 +12,10 @@ export default function ReplyButton ({char}:{char:string}) {
     return (
         <div className={style.replayButtonArea}>
             <button className={style.replayButton} onClick={()=>{
-                char!=="Next" 
-                ? judge4answer(yourAnswer[selected],input["contents"][selected]["answer"],setShowFlag,setResult,setAnsList) 
-                : go2next(setShowFlag,setSelected)}}>
+                char==="Next" && go2next(setShowFlag,setSelected);
+                char==="Replay" && judge4answer(yourAnswer[selected],input["contents"][selected]["answer"],setShowFlag,setResult,setAnsList);
+                char==="Result" && alert("結果表示画面追加予定。。。今は左上のリストから次の問題を選択してください。");
+            }}>
                 {char}
             </button>
         </div>

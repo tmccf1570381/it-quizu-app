@@ -5,8 +5,14 @@ import Header from './components/Header/Header'
 import Footer from "./components/Footer/Footer"
 import LoginForm from "./components/Login/LoginForm"
 import { Amplify, Hub, Auth } from 'aws-amplify';
-import { useEffect, useState } from "react"
-import { getSession } from "./repository/getSession"
+import { createContext, useEffect, useState } from "react"
+import { getSession } from "./repository/getSession";
+import { UserContextProps } from "./model/VariableContextProps"
+
+export const UserContext = createContext<UserContextProps>({
+  user: {email:"", family_name:"", given_name:"", auth:""},
+  setUser: ()=>{}
+})
 
 export default function App() {
   const [user, setUser] = useState({email:"", family_name:"", given_name:"", auth:""});
@@ -24,9 +30,8 @@ export default function App() {
         }
       }
     });
-    
+
     Hub.listen('auth', ({payload: {event}}) => {
-      console.log(event)
         switch (event) {            
             case 'signIn':
             case 'cognitoHostedUI':
@@ -44,14 +49,16 @@ export default function App() {
 
   return (
     <VariableContextProvider>
-    {user.email!==""
-      ? <>      
-          <Header />
-          <Contents/>
-          <Footer/>
-        </>
-      : <LoginForm />
-    }
+      <UserContext.Provider value={{user:user,setUser:setUser}} >
+        {user.email!==""
+          ? <>      
+              <Header />
+              <Contents/>
+              <Footer/>
+            </>
+          : <LoginForm />
+        }
+      </UserContext.Provider>
     </VariableContextProvider>
   )
 }

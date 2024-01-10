@@ -5,6 +5,7 @@ import SideBar from "./SideBar/SideBar"
 import StatusBar from "./StatusBar/Statusbar"
 import { ExamContextProps } from "../../model/VariableContextProps"
 import { VariableContext } from "../../contexts/VariableContextProvider"
+import { UserContext } from "../../App"
 
 export const ExamContext = createContext<ExamContextProps>({
     ansList: [],
@@ -13,17 +14,17 @@ export const ExamContext = createContext<ExamContextProps>({
     setShowFlag : ()=>{},
     result: false,
     setResult : ()=>{}
-})
+});
 
 export default function Contents () {
     const [showFlag, setShowFlag] = useState(true);
     const [result, setResult] = useState(false);
     const [ansList, setAnsList] = useState<boolean[]>([]);
     const { examination } = useContext(VariableContext);
+    const { user } = useContext(UserContext)
 
     useEffect(()=>{
         ansList.length!==0 && (async()=>{
-            console.log(ansList)
             await fetch("https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/results",{
                 method: "POST",
                 mode: "cors",
@@ -33,7 +34,7 @@ export default function Contents () {
                 body: JSON.stringify(
                     {
                         exam: examination.tittle+"#"+examination.no,
-                        email: "makoto_tanabe",
+                        email: user.email,
                         ansList: ansList,
                         tittle: examination.tittle,
                         no: String(examination.no)
@@ -48,10 +49,8 @@ export default function Contents () {
         <div className={style.main}>      
             <SideBar />
             <div className={style.quizArea}>
-                <>
-                    <StatusBar/>
-                    <Quiz />
-                </>
+                <StatusBar/>
+                <Quiz />
             </div>
         </div>
         </ExamContext.Provider>

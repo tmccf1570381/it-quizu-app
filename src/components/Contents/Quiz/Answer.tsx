@@ -14,6 +14,7 @@ export default function Answer () {
             <div>{input["contents"][selected]["explanation"]}</div>
         </div>
         {selected!==6 && <ReplyButton char={"Next"} />}
+        {selected===6 && <ReplyButton char={"Result"} />}
         </>
     )
 }
