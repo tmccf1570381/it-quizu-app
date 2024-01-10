@@ -6,8 +6,8 @@ import { ExamContext } from "../Contents";
 
 export default function StatusBar () {
     const { setInput, selected, setSelected, isLoading, examination, setExamination } = useContext(VariableContext);
-    const { setShowFlag, setAnsList } = useContext(ExamContext)
-    const [examList, setExamList] = useState([{no:"0", exam:"", target:""}])
+    const { setShowFlag, setAnsList } = useContext(ExamContext);
+    const [examList, setExamList] = useState([{no:"0", exam:"", target:""}]);
     
     useEffect(()=>{
         (async()=>{
@@ -19,7 +19,7 @@ export default function StatusBar () {
                 setInput(data);
             }
         })();
-    },[examination.no])
+    },[examination.no]);
 
     useEffect(()=>{
         (async()=>{
@@ -29,17 +29,16 @@ export default function StatusBar () {
                 setAnsList([]);
                 setExamList(sorted);
             }
-        })()
-    },[examination.tittle])
+        })();
+    },[examination.tittle]);
 
     return (
-        <>
         <div className={style.statusBar}>
         {isLoading && <Loading/>}
             <select name="selector" id="selector" className={style.selectTest} 
                 onChange={(e)=>{
-                    setExamination(prev=>({...prev, no:Number(e.target.value)}))
-                    setSelected(0)}}>
+                    setExamination(prev=>({...prev, no:Number(e.target.value)}));
+                    setSelected(0);}}>
                 <option  value={0} >選択してください</option>
                 {examList.map((e,i)=><option key={examination.tittle+i} value={e.no} >{examination.tittle}#{e.no}</option>)}
             </select>
@@ -50,6 +49,5 @@ export default function StatusBar () {
                 }
             </div>
         </div>
-        </>
     )
 }
