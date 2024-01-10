@@ -23,7 +23,7 @@ export default function StatusBar () {
 
     useEffect(()=>{
         (async()=>{
-            if (["SOA","CLF"].includes(examination.tittle)){
+            if (["SOA","CLF","DVA","SAA"].includes(examination.tittle)){
                 const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-examList?exam=${examination.tittle}`).then(e=>e.json());
                 const sorted = data.Items.sort((a:any,b:any) => a.no - b.no)
                 setAnsList([]);
