@@ -7,13 +7,13 @@ import { ExamContext } from "../Contents"
 
 export default function ReplyButton ({char}:{char:string}) {
     const { input, yourAnswer, selected, setSelected } = useContext(VariableContext);
-    const { setShowFlag, setResult } = useContext(ExamContext)
+    const { setShowFlag, setResult, setAnsList } = useContext(ExamContext);
 
     return (
         <div className={style.replayButtonArea}>
             <button className={style.replayButton} onClick={()=>{
                 char!=="Next" 
-                ? judge4answer(yourAnswer[selected],input["contents"][selected]["answer"],setShowFlag,setResult) 
+                ? judge4answer(yourAnswer[selected],input["contents"][selected]["answer"],setShowFlag,setResult,setAnsList) 
                 : go2next(setShowFlag,setSelected)}}>
                 {char}
             </button>

@@ -1,3 +1,5 @@
+export type setBooleanType = React.Dispatch<React.SetStateAction<boolean>>
+
 type contens = {
     question : string
     option : string[]
@@ -5,16 +7,9 @@ type contens = {
     explanation : string
 }
 
-type examinationType = {
+export type examinationType = {
     tittle : string
     no : number
-}
-
-type userType = {
-    family_name: string
-    given_name: string
-    email: string
-    auth: string
 }
 
 export type inputType = {
@@ -37,8 +32,21 @@ export type VariableContextProps = {
 }
 
 export type ExamContextProps = {
+    ansList: boolean[]
+    setAnsList: React.Dispatch<React.SetStateAction<boolean[]>>
     showFlag: boolean
     setShowFlag: React.Dispatch<React.SetStateAction<boolean>>
     result: boolean
     setResult : React.Dispatch<React.SetStateAction<boolean>>
 }
+
+export type regInputType = {
+    new_password:string 
+    family_name:string 
+    given_name:string
+}
+
+export type formInputType = {
+    email:string
+    password:string
+} 

@@ -26,7 +26,6 @@ export default function StatusBar () {
                 const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-examList?exam=${examination.tittle}`).then(e=>e.json());
                 const sorted = data.Items.sort((a:any,b:any) => a.no - b.no)
                 setExamList(sorted)
-                setExamination(prev=>({...prev, no:Number(sorted[0].no)}))
             }
         })()
     },[examination.tittle])
@@ -37,6 +36,7 @@ export default function StatusBar () {
         {isLoading && <Loading/>}
             <select name="selector" id="selector" className={style.selectTest} 
                 onChange={(e)=>setExamination(prev=>({...prev, no:Number(e.target.value)}))}>
+                    <option  value={0} >選択してください</option>
                 {
                     examList.map((e,i)=><option key={examination.tittle+i} value={e.no} >{examination.tittle}#{e.no}</option>)
                 }
