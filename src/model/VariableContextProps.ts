@@ -44,7 +44,7 @@ type userType = {
     email: string
     family_name: string
     given_name: string
-    auth: string
+    auth: number
 }
 
 export type UserContextProps = {

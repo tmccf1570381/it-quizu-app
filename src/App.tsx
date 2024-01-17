@@ -10,12 +10,12 @@ import { getSession } from "./repository/getSession";
 import { UserContextProps } from "./model/VariableContextProps"
 
 export const UserContext = createContext<UserContextProps>({
-  user: {email:"", family_name:"", given_name:"", auth:""},
+  user: {email:"", family_name:"", given_name:"", auth:4},
   setUser: ()=>{}
 })
 
 export default function App() {
-  const [user, setUser] = useState({email:"", family_name:"", given_name:"", auth:""});
+  const [user, setUser] = useState({email:"", family_name:"", given_name:"", auth:4});
 
   useEffect(()=>{
     Amplify.configure({
@@ -38,7 +38,7 @@ export default function App() {
               getSession({Auth,setUser});
               break;
             case 'signOut':
-              setUser({email:"", family_name:"", given_name:"", auth:""});
+              setUser({email:"", family_name:"", given_name:"", auth:4});
               break;
             case 'signIn_failure':
             case 'cognitoHostedUI_failure':
