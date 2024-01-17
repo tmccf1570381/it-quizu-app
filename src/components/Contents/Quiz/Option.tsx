@@ -26,7 +26,7 @@ export default function Option () {
                 ))
             }
         </div>
-        <ReplyButton char={"Replay"} />
+        <ReplyButton char={"Answer"} />
         </>
     )
 }
