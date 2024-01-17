@@ -4,9 +4,11 @@ import { num2alpha } from "../../../repository/num2alpha"
 import ReplyButton from "./ReplyButton"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
 import { selectoptions } from "../../../repository/selectoptions"
+// import { UserContext } from "../../../App"
 
 export default function Option () {
-    const {input, selected, yourAnswer, setYourAnswer} = useContext(VariableContext)
+    const { input, selected, yourAnswer, setYourAnswer } = useContext(VariableContext);
+    // const { user } = useContext(UserContext);
 
     return (
         <>
