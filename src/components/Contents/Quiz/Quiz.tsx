@@ -4,10 +4,11 @@ import Option from "./Option";
 import Question from "./Question";
 import Hanamaru from "../../Loading/Hanamaru";
 import { ExamContext } from "../Contents";
+import Record from "../Record/Record";
 
 export default function Quiz () {
     const [timeFlag, setTimeFlag] = useState(false);
-    const {showFlag, result} = useContext(ExamContext)
+    const { showFlag, result, ansList } = useContext(ExamContext);
 
     useEffect(()=>{
         setTimeFlag(true);
@@ -17,12 +18,13 @@ export default function Quiz () {
 
     return (
         <div>
-        {!showFlag && timeFlag && <Hanamaru judge={result} />}
-            <Question />
-            {showFlag 
-                ? <Option  />
-                : <Answer />
-            }
+            {!showFlag && timeFlag && <Hanamaru judge={result} />}
+            {ansList.length!== 7 || !showFlag 
+            ? <>
+                <Question />
+                {showFlag ? <Option  /> : <Answer />}
+              </>
+            : <Record/>}
         </div>
     )
 }

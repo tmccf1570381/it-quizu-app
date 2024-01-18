@@ -14,7 +14,8 @@ export default function ReplyButton ({char}:{char:string}) {
             <button className={style.replayButton} onClick={()=>{
                 char==="Next" && go2next(setShowFlag,setSelected);
                 char==="Answer" && judge4answer(yourAnswer[selected],input["contents"][selected]["answer"],setShowFlag,setResult,setAnsList);
-                char==="Result" && alert("結果表示画面追加予定。。。今は左上のリストから次の問題を選択してください。");
+                char==="Result" && setShowFlag(true);
+                char==="Continue" && alert("まだ関数できてないので、左上のドロップダウンリストから次の問題を選んでください")
             }}>
                 {char}
             </button>
