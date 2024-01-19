@@ -16,7 +16,12 @@ export default function StatusBar () {
                 setShowFlag(true);
                 setSelected(0);
                 setAnsList([]);
-                setInput(data);
+                if (data.message==='Endpoint request timed out') {
+                    const data2 = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-exam?exam=${examination.tittle}&no=${String(examination.no).padStart(2,"0")}`).then(e=>e.json());
+                    data2.message!=='Endpoint request timed out' && setInput(data2);
+                } else {
+                    setInput(data);
+                }
             }
         })();
     },[examination.no]);
