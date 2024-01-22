@@ -1,27 +1,17 @@
-import { createContext, useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import style from "../../css/Contents.module.css"
 import Quiz from "./Quiz/Quiz"
 import SideBar from "./SideBar/SideBar"
 import StatusBar from "./StatusBar/Statusbar"
-import { ExamContextProps } from "../../model/VariableContextProps"
+// import { ExamContextProps } from "../../model/VariableContextProps"
 import { VariableContext } from "../../contexts/VariableContextProvider"
 import { UserContext } from "../../App"
-
-export const ExamContext = createContext<ExamContextProps>({
-    ansList: [],
-    setAnsList: ()=>{},
-    showFlag: true,
-    setShowFlag : ()=>{},
-    result: false,
-    setResult : ()=>{}
-});
+import { ExamContext } from "../../contexts/ExamContextProvider"
 
 export default function Contents () {
-    const [showFlag, setShowFlag] = useState(true);
-    const [result, setResult] = useState(false);
-    const [ansList, setAnsList] = useState<boolean[]>([]);
     const { examination } = useContext(VariableContext);
-    const { user } = useContext(UserContext)
+    const { user } = useContext(UserContext);
+    const { ansList } = useContext(ExamContext);
 
     useEffect(()=>{
         ansList.length!==0 && (async()=>{
@@ -45,7 +35,6 @@ export default function Contents () {
     },[ansList])
 
     return (
-        <ExamContext.Provider value={{ansList:ansList,setAnsList:setAnsList,showFlag:showFlag,setShowFlag:setShowFlag,result:result,setResult:setResult}}>
         <div className={style.main}>      
             <SideBar />
             <div className={style.quizArea}>
@@ -53,6 +42,5 @@ export default function Contents () {
                 <Quiz />
             </div>
         </div>
-        </ExamContext.Provider>
     )
 }

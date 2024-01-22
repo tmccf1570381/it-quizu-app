@@ -3,7 +3,7 @@ import style from "../../../css/Quiz.module.css"
 import { judge4answer } from "../../../repository/judge4answer"
 import { go2next } from "../../../repository/got2next"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
-import { ExamContext } from "../Contents"
+import { ExamContext } from "../../../contexts/ExamContextProvider"
 
 export default function ReplyButton ({char}:{char:string}) {
     const { input, yourAnswer, selected, setSelected } = useContext(VariableContext);

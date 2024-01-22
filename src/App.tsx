@@ -8,6 +8,7 @@ import { Amplify, Hub, Auth } from 'aws-amplify';
 import { createContext, useEffect, useState } from "react"
 import { getSession } from "./repository/getSession";
 import { UserContextProps } from "./model/VariableContextProps"
+import { ExamContextProvider } from "./contexts/ExamContextProvider"
 
 export const UserContext = createContext<UserContextProps>({
   user: {email:"", family_name:"", given_name:"", auth:4},
@@ -49,16 +50,18 @@ export default function App() {
 
   return (
     <VariableContextProvider>
-      <UserContext.Provider value={{user:user,setUser:setUser}} >
-        {user.email!==""
-          ? <>      
-              <Header />
-              <Contents/>
-              <Footer/>
-            </>
-          : <LoginForm />
-        }
-      </UserContext.Provider>
+      <ExamContextProvider>
+        <UserContext.Provider value={{user:user,setUser:setUser}} >
+          {user.email!==""
+            ? <>      
+                <Header />
+                <Contents/>
+                <Footer/>
+              </>
+            : <LoginForm />
+          }
+        </UserContext.Provider>
+      </ExamContextProvider>
     </VariableContextProvider>
   )
 }

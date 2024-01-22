@@ -3,8 +3,8 @@ import Answer from "./Answer";
 import Option from "./Option";
 import Question from "./Question";
 import Hanamaru from "../../Loading/Hanamaru";
-import { ExamContext } from "../Contents";
 import Record from "../Record/Record";
+import { ExamContext } from "../../../contexts/ExamContextProvider";
 
 export default function Quiz () {
     const [timeFlag, setTimeFlag] = useState(false);

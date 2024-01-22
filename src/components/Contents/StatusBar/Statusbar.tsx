@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import style from "../../../css/StatuBar.module.css"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
 import Loading from "../../Loading/Loading"
-import { ExamContext } from "../Contents";
+import { ExamContext } from "../../../contexts/ExamContextProvider"
 
 export default function StatusBar () {
     const { setInput, selected, setSelected, isLoading, examination, setExamination } = useContext(VariableContext);

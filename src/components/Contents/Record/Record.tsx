@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { num2alpha } from "../../../repository/num2alpha";
-import { ExamContext } from "../Contents";
+import { ExamContext } from "../../../contexts/ExamContextProvider";
 import { VariableContext } from "../../../contexts/VariableContextProvider";
 import ReplyButton from "../Quiz/ReplyButton";
 import styles from "../../../css/Record.module.css"
