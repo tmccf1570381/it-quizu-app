@@ -11,10 +11,12 @@ export const VariableContext = createContext<VariableContextProps>({
     setSelected : ()=>{},
     isLoading : false,
     setIsLoading : ()=>{},
-    yourAnswer: [[],[],[],[],[],[],[]],
+    yourAnswer : [[],[],[],[],[],[],[]],
     setYourAnswer : ()=>{},
-    examination: {tittle: "", no: 0},
-    setExamination: ()=>{},
+    examination : {tittle: "", no: 0},
+    setExamination : ()=>{},
+    page : 0,
+    setPage : ()=>{}
 });
 
 export const VariableContextProvider:React.FC<Props> = ({children}) => {
@@ -23,6 +25,7 @@ export const VariableContextProvider:React.FC<Props> = ({children}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [yourAnswer, setYourAnswer] = useState<number[][]>([[],[],[],[],[],[],[]]);
     const [examination, setExamination] = useState({tittle: "not selected", no: 0});
+    const [page, setPage] = useState(0);
 
     const values = {
         input : input,
@@ -34,7 +37,9 @@ export const VariableContextProvider:React.FC<Props> = ({children}) => {
         yourAnswer : yourAnswer,
         setYourAnswer : setYourAnswer,
         examination: examination,
-        setExamination: setExamination
+        setExamination: setExamination,
+        page: page,
+        setPage: setPage
     }
 
     return (

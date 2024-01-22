@@ -27,8 +27,10 @@ export type VariableContextProps = {
     setIsLoading : React.Dispatch<React.SetStateAction<boolean>>
     yourAnswer : number[][]
     setYourAnswer : React.Dispatch<React.SetStateAction<number[][]>>
-    examination: examinationType
-    setExamination: React.Dispatch<React.SetStateAction<examinationType>>
+    examination : examinationType
+    setExamination : React.Dispatch<React.SetStateAction<examinationType>>
+    page : number
+    setPage : React.Dispatch<React.SetStateAction<number>>
 }
 
 export type ExamContextProps = {
