@@ -40,7 +40,7 @@ export default function StatusBar () {
     return (
         <div className={style.statusBar}>
             {isLoading && <Loading/>}
-            <select name="selector" id="selector" className={style.selectTest} value={examination.no}
+            <select name="selector" id="selector" className={style.selectTest} value={String(examination.no).padStart(2,"0")}
                 onChange={(e)=>{
                     setExamination(prev=>({...prev, no:Number(e.target.value)}));
                     setSelected(0);}}>
