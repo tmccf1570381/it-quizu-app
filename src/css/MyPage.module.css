@@ -1,0 +1,34 @@
+.mypageArea {
+    padding: 0 2vw;
+}
+
+.head {
+    color: rgb(64, 64, 64);
+    text-shadow: 1px 1px 2px #88AB8E;
+}
+
+.supplement {
+    font-size: 1.1rem
+}
+
+.headSection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4vh;
+}
+
+.headSectionCard {
+    width: 23vw;
+    height: 20vh;
+    padding: 1vh 1vw;
+    margin-right: 5vw;
+    border: 0.1rem solid #88AB8E;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    color: rgb(49, 49, 49);
+    font-weight: bold;
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+    -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+    0px 1px 0 #FFF,  0-1px 0 #FFF,
+    -1px 0 0 #FFF, 1px 0 0 #FFF;
+}

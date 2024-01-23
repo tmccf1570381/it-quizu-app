@@ -1,12 +1,27 @@
+import { useContext } from "react"
+import { UserContext } from "../../../App"
+import styles from "../../../css/MyPage.module.css"
+
 export default function MyPage () {
+    const { user } = useContext(UserContext)
+
     return (
-        <>
-        <h1>My Page建設予定地</h1>
-        <div>過去の勉強結果とか出したいんですが、、、</div>
-        <div>まだできてないので、左のタブから「デジタル腕試し」を選択して挑戦ください。</div>
-        <h3>更新履歴</h3>
-        <div>2024/01/22・・・マイページ建設予定地追加</div>
-        <div>2024/01/18・・・７問回答後の結果表示ページ追加</div>
-        </>
+        <div className={styles.mypageArea}>
+            <h2 className={styles.head}>{user.family_name+" "+user.given_name} <span className={styles.supplement}>さんのページ</span></h2>
+            <h4>・結果サマリ</h4>
+            <section className={styles.headSection}>
+                <div className={styles.headSectionCard}>
+                    <span>Accuracy</span>
+                </div>
+                <div className={styles.headSectionCard}>
+                    <span>Questions</span>
+                </div>
+            </section>
+            <h4>・学習履歴</h4>
+            <div>
+                <div>XXXXXX</div>
+                <div>XXXXXX</div>
+            </div>
+        </div>
     )
 }

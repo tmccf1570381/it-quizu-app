@@ -9,7 +9,7 @@ export default function Catergory ({num}:{num:number}) {
     return (
         <h5>
             <label className={style.catergoryRow}>
-                <input type="radio" name="sideBar" className={style.hidden} checked={page===num} onClick={()=>setPage(num)}/>
+                <input type="radio" name="sideBar" className={style.hidden} checked={page===num} onChange={()=>setPage(num)}/>
                 {cateList[num]}
             </label>
         </h5>
