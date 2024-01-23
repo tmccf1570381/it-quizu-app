@@ -64,3 +64,10 @@ export type formInputType = {
     email:string
     password:string
 } 
+
+export type nextTestType = {
+    setShowFlag:setBooleanType
+    setSelected:React.Dispatch<React.SetStateAction<number>>
+    setAnsList:React.Dispatch<React.SetStateAction<boolean[]>>
+    setExamination:React.Dispatch<React.SetStateAction<examinationType>>
+}
