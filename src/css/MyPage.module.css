@@ -25,10 +25,71 @@
     border: 0.1rem solid #88AB8E;
     border-radius: 0.5rem;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     color: rgb(49, 49, 49);
     font-weight: bold;
     text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
     -1px 1px 0 #FFF, 1px -1px 0 #FFF,
     0px 1px 0 #FFF,  0-1px 0 #FFF,
     -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+
+.examTable {
+    border: 1px solid gray;
+    box-sizing: border-box;
+    text-align: center;
+    border-collapse:  collapse;
+}
+
+.examTableBody, .examTableHead {
+    display: block;
+}
+
+.examTableBody {
+    max-height: 30vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.examTableBody::-webkit-scrollbar {
+    display: none;
+}
+
+.examTableCell {
+    border-right: 1px solid gray;
+    border-collapse:  collapse;
+    box-sizing: border-box;
+    width: 8vw;
+}
+
+.examTableCell:nth-child(9) {
+    border-right: 0px solid gray;
+}
+
+.examTableCell2 {
+    border-collapse: collapse;
+    box-sizing: border-box;
+    width: 56vw;
+}
+
+.examTableRowH, .examTableRowB {
+    border-bottom: 1px solid gray;
+}
+
+.examTableRowH {
+    background-color: #AFC8AD;
+}
+
+.examTableRowB:last-child {
+    border-bottom: 0px solid gray;
+}
+
+.resolved, .accuracy {
+    font-size: 3rem;
+    display: block;
+    margin: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

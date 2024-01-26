@@ -71,3 +71,11 @@ export type nextTestType = {
     setAnsList:React.Dispatch<React.SetStateAction<boolean[]>>
     setExamination:React.Dispatch<React.SetStateAction<examinationType>>
 }
+
+export type examLogType = {
+    ansList: boolean[]
+    tittle: string
+    no: string
+    email: string
+    exam: string
+}[]
