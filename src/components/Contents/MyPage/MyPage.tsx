@@ -15,7 +15,7 @@ export default function MyPage () {
     useEffect(()=>{
         (async()=>{
             setIsLoading(true);
-            const log = await fetch("https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/results")
+            const log = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/results?email=${user.email}`)
             .then(e=>e.json());
             setExamLog(log.Items);
             const summary = log.Items.map((e:any)=>e.ansList).flat();
