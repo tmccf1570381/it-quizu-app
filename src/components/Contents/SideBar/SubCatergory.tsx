@@ -12,7 +12,7 @@ export default function SubCatergory ({cateList}:{cateList:string[]}) {
                 <label key={"$"+ind}>
                     <input type="radio" name={"testlist"} value={e.replace("AWS ","")} 
                         onChange={(i)=>{
-                            if (["SOA","CLF","SAA","DVA"].includes(i.target.value)){
+                            if (["SOA","CLF","SAA","DVA","DOP"].includes(i.target.value)){
                                 setInput(dummyInput);
                                 setExamination({tittle: i.target.value, no: 0});
                                 setSelected(0);
