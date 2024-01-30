@@ -5,12 +5,13 @@ import Loading from "../../Loading/Loading"
 import { ExamContext } from "../../../contexts/ExamContextProvider"
 
 export default function StatusBar () {
-    const { setInput, selected, setSelected, isLoading, examination, setExamination } = useContext(VariableContext);
+    const { setInput, selected, setSelected, isLoading, setIsLoading, examination, setExamination } = useContext(VariableContext);
     const { setShowFlag, setAnsList } = useContext(ExamContext);
     const [examList, setExamList] = useState([{no:"0", exam:"", target:""}]);
     
     useEffect(()=>{
         (async()=>{
+            setIsLoading(true);
             if (examination.no!==0){
                 const data = await fetch(`https://lishd6r5ff.execute-api.ap-northeast-1.amazonaws.com/prod/api/v1/get-exam?exam=${examination.tittle}&no=${String(examination.no).padStart(2,"0")}`).then(e=>e.json());
                 setShowFlag(true);
@@ -23,6 +24,7 @@ export default function StatusBar () {
                     setInput(data);
                 }
             }
+            setIsLoading(false);
         })();
     },[examination.no]);
 
