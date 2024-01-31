@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import style from "../../../css/StatuBar.module.css"
 import { VariableContext } from "../../../contexts/VariableContextProvider"
-import Loading from "../../Loading/Loading"
 import { ExamContext } from "../../../contexts/ExamContextProvider"
 
 export default function StatusBar () {
-    const { setInput, selected, setSelected, isLoading, setIsLoading, examination, setExamination } = useContext(VariableContext);
+    const { setInput, selected, setSelected, setIsLoading, examination, setExamination } = useContext(VariableContext);
     const { setShowFlag, setAnsList } = useContext(ExamContext);
     const [examList, setExamList] = useState([{no:"0", exam:"", target:""}]);
     
@@ -41,7 +40,6 @@ export default function StatusBar () {
 
     return (
         <div className={style.statusBar}>
-            {isLoading && <Loading/>}
             <select name="selector" id="selector" className={style.selectTest} value={String(examination.no).padStart(2,"0")}
                 onChange={(e)=>{
                     setExamination(prev=>({...prev, no:Number(e.target.value)}));

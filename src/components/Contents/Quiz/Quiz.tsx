@@ -17,6 +17,7 @@ export default function Quiz () {
     },[showFlag===false])
 
     return (
+        <>
         <div>
             {!showFlag && timeFlag && <Hanamaru judge={result} />}
             {ansList.length!== 7 || !showFlag 
@@ -26,5 +27,6 @@ export default function Quiz () {
               </>
             : <Record/>}
         </div>
+        </>
     )
 }
