@@ -12,7 +12,6 @@ export default function ExamLogTable ({examLog}:{examLog:examLogType}) {
                     <th className={styles.examTableCell2} colSpan={7}>結果</th>
                 </tr>
             </thead>
-
             <tbody className={styles.examTableBody}>
                 {examLog.map((e,ind)=>
                     <tr key={"&&"+ind} className={styles.examTableRowB}>
