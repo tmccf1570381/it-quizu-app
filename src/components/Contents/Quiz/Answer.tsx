@@ -11,7 +11,19 @@ export default function Answer () {
         <>
         <div className={style.answerArea}>
             <h5>正解は・・・<span>{`${input["contents"][selected]["answer"].map(e=>num2alpha(e))}`}</span></h5>
-            <div>{input["contents"][selected]["explanation"]}</div>
+            <div className={style.optionAndAnswer}>
+                <div>
+                    {
+                        input["contents"][selected]["option"].map((e,ind) => (
+                            <label className={style.optionSingle} key={"%"+ind}>
+                                <div className={style.optionSingleAlpha}>{num2alpha(ind)}</div>
+                                <div className={style.optionSingleText}>{e}</div>
+                            </label>
+                        ))
+                    }
+                </div>
+                {input["contents"][selected]["explanation"]}
+            </div>
         </div>
         {selected!==6 && <ReplyButton char={"Next"} />}
         {selected===6 && <ReplyButton char={"Result"} />}
