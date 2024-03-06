@@ -72,7 +72,7 @@
     font-size: 1.2em;
 }
 
-.answerArea > div {
+.answerArea > .optionAndAnswer {
     height: 39vh;
     padding: 0 1vw;
     font-size: 0.8rem;
@@ -82,6 +82,16 @@
     border: none;
     overflow-y: scroll;
     white-space: pre-wrap;
+}
+
+.answerArea > .optionAndAnswer > div{
+    margin: 0 1.5vw;
+    height: 45vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    box-sizing: border-box;
+    background-color: #F2F1EB;
 }
 
 .replayButtonArea {
